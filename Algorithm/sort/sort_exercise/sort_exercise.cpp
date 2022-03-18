@@ -1,8 +1,5 @@
 ﻿#include <iostream>
 
-
-
-
 void PrintArray(int input[], int size)
 
 {
@@ -327,10 +324,6 @@ int main()
 
     MergeSort(array, 0, SIZE - 1, tempArray);
 
-
-
     PrintArray(array, SIZE);
-
-    //????
 
 }
