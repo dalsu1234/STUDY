@@ -18,9 +18,6 @@ void PrintArray(int input[], int size)
 
 }
 
-
-
-
 void Swap(int& value1, int& value2)
 
 {
@@ -32,9 +29,6 @@ void Swap(int& value1, int& value2)
     value2 = temp;
 
 }
-
-
-
 
 // Sequential Sort
 
@@ -67,8 +61,6 @@ void SequentialSort(int input[], int size)
     }
 
 }
-
-
 
 
 // Selection Sort
@@ -114,8 +106,6 @@ void SelectionSort(int input[], int size)
     }
 
 }
-
-
 
 
 // Bubble Sort
@@ -186,9 +176,6 @@ void InsertionSort(int input[], int size)
     }
 
 }
-
-
-
 
 //-----------------------------------------------------------------
 
@@ -295,11 +282,6 @@ void MergeSort(int input[], int start, int end, int temp[])
 }
 
 
-
-
-
-
-
 int main()
 
 {
@@ -326,5 +308,5 @@ int main()
 
     PrintArray(array, SIZE);
 
-    //
+
 }
