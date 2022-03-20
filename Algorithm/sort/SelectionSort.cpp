@@ -14,7 +14,6 @@ int main()
 			{
 				min = j;
 			}
-
 			if (min != i)
 			{
 				int temp{};
