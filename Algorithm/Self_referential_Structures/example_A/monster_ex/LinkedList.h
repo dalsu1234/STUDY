@@ -1,0 +1,17 @@
+#pragma once
+
+#include "Monster.h"
+
+//처음과 끝의 정보가 필요함
+struct MonsterList
+{
+	Monster* pHead;
+	Monster* pTail;
+};
+
+
+// Operation
+// 생성
+// 원소의 개수 (순회)
+// 전체 리스트 삭제
+// 특정 원소 삭제
