@@ -85,6 +85,56 @@ Monster* FindMonster(const MonsterList& list, const char* name)
 	return nullptr;
 }
 
+bool Delete(MonsterList& list, const char* name)
+{
+	Monster* pCurrent = list.pHead;
+	Monster* pPrevious{};
+
+	while (pCurrent!= nullptr)
+	{
+
+		if (strcmp(pCurrent->name, name)==0)
+		{
+			break;
+		}
+		pPrevious = pCurrent;
+		pCurrent = pCurrent->pNext;
+	}
+
+	if (pCurrent == nullptr)
+	{
+		return false;
+	}
+
+	if (list.pHead == list.pTail)
+	{
+		// 원소 하나만 있을떄
+		list.pHead = list.pTail = nullptr;
+		//delete pCurrent; 중복된건 밖으로 사용해서 한번에
+	}
+	else if (list.pHead == pCurrent)
+	{
+		//첫번째원소
+		list.pHead = pCurrent->pNext;
+		//delete pCurrent;
+	}
+	else if (list.pTail == pCurrent)
+	{
+		list.pTail = pPrevious;
+		pPrevious->pNext = nullptr;
+		//delete pCurrent;
+		//마지막원소
+	}
+	else
+	{
+		pPrevious->pNext = pCurrent->pNext;
+		//delete pCurrent;
+		//중간에 있을때
+	}
+	delete pCurrent;
+	return false;
+}
+
 void DeleteAll(MonsterList& list)
 {
 	Monster* p = list.pHead;
@@ -100,4 +150,92 @@ void DeleteAll(MonsterList& list)
 	list.pHead = nullptr;
 	list.pTail = nullptr;
 
+}
+
+
+
+/////////////////////////////
+
+
+
+Monster2* CreateMonster(MonsterList2& list, const char* name, const int hp)
+{
+	Monster2* pMon = new Monster2{};
+	strcpy_s(pMon->name, NAME_LENGTH, name);
+
+	if (list.pTail == nullptr)
+	{
+		list.pHead = pMon;
+	}
+	else
+	{
+		pMon->pPrev = list.pTail;
+		list.pTail->pNext = pMon;
+
+	}
+	list.pTail = pMon;
+
+	return pMon;
+}
+
+int GetCountMonsterList(const MonsterList2& list)
+{
+	return 0;
+}
+
+void PrintMonsterList(const MonsterList2& list)
+{
+}
+
+void PrintListRecursive(Monster2* monster)
+{
+}
+
+Monster2* FindMonster(const MonsterList2& list, const char* name)
+{
+	return nullptr;
+}
+
+void DeleteAll(Monster2& list)
+{
+}
+
+bool Delete(MonsterList2& list, const char* name)
+{
+	Monster2* pCurrent = list.pHead;
+	Monster2* pPrevious{};
+	while (pCurrent != nullptr)
+	{
+		if (strcmp(pCurrent->name, name)==0)
+		{
+			break;
+		}
+		pPrevious = pCurrent;
+		pCurrent = pCurrent->pNext;
+	}
+	if (pCurrent == nullptr)
+	{
+		return false;
+	}
+	if (list.pHead == list.pTail)
+	{
+		list.pHead = list.pTail = nullptr;
+	}
+	else if (list.pHead == pCurrent)
+	{
+		list.pHead = pCurrent->pNext;
+	}
+	else if (list.pTail == pCurrent)
+	{
+		list.pTail = pPrevious;
+		pPrevious->pNext = nullptr;
+	}
+	else
+	{
+		pPrevious->pNext = pCurrent->pNext;
+		//delete pCurrent;
+		//중간에 있을때
+	}
+	delete pCurrent;
+	return false;
 }
