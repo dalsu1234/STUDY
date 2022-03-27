@@ -25,6 +25,12 @@ void StackPrint(Check_QS& check)
 {
 	Attribute_QS* p = check.lastCheck;
 
+	if (p == nullptr)
+	{
+		std::cout << "empty!!" << std::endl;
+		std::cout << "========================" << std::endl;
+		return;
+	}
 	while (p != nullptr)
 	{
 		std::cout << p->num << std::endl;
@@ -40,6 +46,7 @@ void QueuePrint(Check_QS& check)
 	if (p == nullptr)
 	{
 		std::cout << "empty!!" << std::endl;
+		std::cout << "========================" << std::endl;
 		return;
 	}
 	while (p != nullptr)
@@ -180,15 +187,25 @@ void QueueDelete(Check_QS& check)
 	Attribute_QS* pTemp{};
 	Attribute_QS* p{};
 
-	p = check.firstCheck;
-	pTemp = check.firstCheck->pNext;
-	delete p;
-	p = nullptr;
-	check.firstCheck = pTemp;
-	if (check.firstCheck == nullptr)
+
+	if (check.firstCheck != nullptr)
 	{
-		check.firstCheck = nullptr;
-		check.lastCheck = nullptr;
+		p = check.firstCheck;
+		pTemp = check.firstCheck->pNext;
+		delete p;
+		p = nullptr;
+		check.firstCheck = pTemp;
+		
+		if (check.firstCheck == nullptr)
+		{
+			check.firstCheck = nullptr;
+			check.lastCheck = nullptr;
+
+		}
+	}
+	else
+	{
+		std::cout << " 불가능합니다. " << std::endl;
 	}
 
 }
@@ -197,15 +214,22 @@ void StackDelete(Check_QS& check)
 	Attribute_QS* pTemp{};
 	Attribute_QS* p{};
 
-	p = check.lastCheck;
-	pTemp = check.lastCheck->pPrev;
-	delete p;
-	p = nullptr;
-	check.lastCheck = pTemp;
-	if (check.lastCheck == nullptr)
+	if (check.lastCheck != nullptr)
 	{
-		check.firstCheck = nullptr;
-		check.lastCheck = nullptr;
+		p = check.lastCheck;
+		pTemp = check.lastCheck->pPrev;
+		delete p;
+		p = nullptr;
+		check.lastCheck = pTemp;
+		if (check.lastCheck == nullptr)
+		{
+			check.firstCheck = nullptr;
+			check.lastCheck = nullptr;
+		}
 	}
-
+	else
+	{
+		std::cout << " 불가능합니다. " << std::endl;
+	}
+	
 }
