@@ -1,6 +1,16 @@
 #include <iostream>
 #include "student.h"
 
+void Student::StuPrint() const
+{
+	std::cout << "==================" << std::endl;
+	std::cout << "이름 : " << mName << std::endl;
+	std::cout << "번호 : " << mNum << std::endl;
+	std::cout << "점수 : " << mScore << std::endl;
+	std::cout << "==================" << std::endl;
+}
+
+
 void ClassRoom::GetRoom(int year, int room)
 {
 	mYear = year;
@@ -56,3 +66,4 @@ int ClassRoom::TotalScore(int score)
 {
 	return mTotal = score;
 }
+
