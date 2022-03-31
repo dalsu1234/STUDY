@@ -3,8 +3,10 @@
 
 int main()
 {
-	Class cls;
-	int i{}, x{};
-	cls.Input(i, x);
-	cls.Print();
+
+	ClassRoom rom;
+
+	rom.ListStudent();
+
 }
+
