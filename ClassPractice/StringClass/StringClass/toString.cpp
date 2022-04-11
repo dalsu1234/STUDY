@@ -65,6 +65,30 @@ String String::operator+(const String& instance)
 	return sumString;
 }
 
+String& String::operator=(const String& instance)
+{
+	mLength = instance.mLength;
+	mString = new char[mLength+1];
+	for (int i = 0; i < mLength; i++)
+	{
+		mString[i] = instance.mString[i];
+	}
+	mString[mLength] = '\0';
+	return *this;
+}
+
+String String::operator+=(const String& instance)
+{
+	
+	String st(mLength + instance.mLength);
+
+	st = *this + instance;
+
+	return st;
+	
+}
+
+
 
 
 
