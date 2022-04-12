@@ -21,5 +21,6 @@ int main()
 	std::cout << st3 << std::endl;
 	st1 += st2;
 	std::cout << st1 << std::endl;
-
+	st1[1] = 'a';
+	std::cout << st1[1] << st1[3] << std::endl;
 }

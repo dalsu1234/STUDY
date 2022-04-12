@@ -77,16 +77,24 @@ String& String::operator=(const String& instance)
 	return *this;
 }
 
-String String::operator+=(const String& instance)
+String& String::operator+=(const String& instance)
 {
 	
 	String st(mLength + instance.mLength);
 
 	st = *this + instance;
-
-	return st;
+	*this = st;
+	return *this;
 	
 }
+
+char& String::operator[](int index) const
+{
+	return mString[index];
+}
+
+
+
 
 
 
